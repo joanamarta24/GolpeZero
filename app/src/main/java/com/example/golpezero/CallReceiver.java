@@ -1,7 +1,5 @@
 package com.example.golpezero;
 
-import static com.example.golpezero.InterfaceKt.triggerIoTAlert;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
