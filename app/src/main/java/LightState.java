@@ -1,3 +1,7 @@
+import android.content.Context;
+
+import retrofit2.Call;
+
 public class LightState {
     private final boolean on;
     private final int hue;
@@ -18,6 +22,12 @@ public class LightState {
 
     public int getHue() {
         return hue;
+    }
+    public Call<Void> setLightState(LightState lightState) {
+        return null;
+    }
+    public void triggerIoTAlert(Context context) {
+
     }
 
 }

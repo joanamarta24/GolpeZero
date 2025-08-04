@@ -13,7 +13,7 @@ interface SmartLightApi {
     suspend fun setLightState(@Body state: LightState)
 }
 
-data class LightState(val on: Boolean, val hue: Int) // hue 0 = vermelho
+data class LightState(val on: Boolean, val hue: Int)
 
 // Função para acionar o alerta
 fun triggerIoTAlert(context: Context) {
