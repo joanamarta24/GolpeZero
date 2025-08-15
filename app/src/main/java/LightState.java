@@ -3,10 +3,10 @@ import android.content.Context;
 import retrofit2.Call;
 
 public class LightState {
-    private final boolean on;
-    private final int hue;
+    private boolean on;
+    private int hue;
 
-    public SmartLightApi(boolean on, int hue) {
+    public void SmartLightApi(boolean on, int hue) {
         this.on = on;
         this.hue = hue;
     }
@@ -29,5 +29,6 @@ public class LightState {
     public void triggerIoTAlert(Context context) {
 
     }
+
 
 }

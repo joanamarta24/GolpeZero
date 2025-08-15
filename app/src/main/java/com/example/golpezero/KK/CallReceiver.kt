@@ -25,8 +25,10 @@ class CallReceiver : BroadcastReceiver() {
         return number != null && number.startsWith("000") // Exemplo simples
     }
 
-    private fun triggerIoTAlert(context: Context?) {
+    private fun triggerIoTAlert(context: Context?): Boolean {
+        return number != null &&(number.startsWith("000")||number.startsWith("111"))
 
     }
+
     
 }
