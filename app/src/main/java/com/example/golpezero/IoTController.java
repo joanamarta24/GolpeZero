@@ -1,6 +1,5 @@
 package com.example.golpezero;
 
-
 import android.content.Context;
 import android.hardware.lights.LightState;
 import android.util.Log;
@@ -13,17 +12,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class IoTController {
 
-    private static final String BASE_URL = "http://192.168.0.10/api/"; // coloque o IP real da lâmpada
-
     public void triggerIoTAlert(Context context) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl("http://<IP_DA_LAMPADA>/api/") // Troque pelo IP real
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         SmartLightApi api = retrofit.create(SmartLightApi.class);
 
-        Call<Void> call = api.setLightState(new LightState(true, 0)); // 0 = vermelho
+        // Liga a lâmpada e muda a cor
+        Call<Void> call = api.setLightState(new LightState(true, 0)); // hue=0 → vermelho
+
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
@@ -32,9 +31,8 @@ public class IoTController {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Log.e("IoT", "Erro ao enviar comando para a lâmpada", t);
+                Log.e("IoT", "Erro ao ativar lâmpada", t);
             }
         });
     }
 }
-
