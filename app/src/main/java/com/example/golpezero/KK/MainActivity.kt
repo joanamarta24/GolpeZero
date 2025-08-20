@@ -1,6 +1,7 @@
 package com.example.golpezero
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.golpezero.R.layout.activity_main)
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         btnToggleMonitor = findViewById(com.example.golpezero.R.id.btnToggleMonitor)
         tvStatus = findViewById(com.example.golpezero.R.id.tvStatus)
 
-        btnToggleMonitor.setOnClickListener { toggleMonitoring() }
+        this.btnToggleMonitor.setOnClickListener { toggleMonitoring() }
         checkInitialState()
     }
 
