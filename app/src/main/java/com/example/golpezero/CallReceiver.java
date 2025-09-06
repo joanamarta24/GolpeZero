@@ -9,9 +9,10 @@ import android.widget.Toast;
 public class CallReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+        String incomingNumber = null;
         if (intent.getAction().equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
             String state = intent.getStringExtra(TelephonyManager.EXTRA_STATE);
-            String incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
+            incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
         }
         if (isScam(incomingNumber)) {
             Toast.makeText(context, "Possivel golpe:" + incomingNumber,

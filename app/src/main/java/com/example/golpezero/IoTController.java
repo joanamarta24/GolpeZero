@@ -2,7 +2,10 @@ package com.example.golpezero;
 
 import android.content.Context;
 import android.hardware.lights.LightState;
+import android.os.Build;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,6 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class IoTController {
 
+    @RequiresApi(api = Build.VERSION_CODES.S)
     public void triggerIoTAlert(Context context) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://<IP_DA_LAMPADA>/api/") // Troque pelo IP real
