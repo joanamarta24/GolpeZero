@@ -1,12 +1,9 @@
 package com.example.golpezero;
 
-import android.hardware.lights.LightState;
-
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.PUT;
+import android.telecom.Call;
 
 public interface SmartLightApi {
-    @PUT("lights/1/state")
-    Call<Void> setLightState(@Body LightState lightState);
+@Put("lights/1/state")
+    Call<Void>setLightState
+        (@Body LightState lightState);
 }
