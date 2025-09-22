@@ -4,7 +4,7 @@ import android.content.Intent
 import android.telephony.TelephonyManager
 import android.widget.Toast
 
-class CallReceiver : BroadcastReceiver() {
+class CallReceiver(private val onScamDetected: (String) -> Unit) : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == TelephonyManager.ACTION_PHONE_STATE_CHANGED) {
             val state = intent.getStringExtra(TelephonyManager.EXTRA_STATE)
@@ -27,4 +27,5 @@ class CallReceiver : BroadcastReceiver() {
     private fun triggerIoTAlert(context: Context) {
         // Lógica para se comunicar com o dispositivo IoT
     }
+
 }
