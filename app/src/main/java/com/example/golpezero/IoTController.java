@@ -7,6 +7,8 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import java.lang.ref.Cleaner;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,6 +19,7 @@ public class IoTController {
 
     @RequiresApi(api = Build.VERSION_CODES.S)
     public void triggerIoTAlert(Context context) {
+        Cleaner GsonConverterFactory;
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://<IP_DA_LAMPADA>/api/") // Troque pelo IP real
                 .addConverterFactory(GsonConverterFactory.create())
@@ -25,7 +28,7 @@ public class IoTController {
         SmartLightApi api = retrofit.create(SmartLightApi.class);
 
         // Liga a lâmpada e muda a cor
-        Call<Void> call = api.setLightState(new LightState(true, 0)); // hue=0 → vermelho
+        com.example.golpezero.Call<Void> call = api.setLightState(new LightState(true, 0)); // hue=0 → vermelho
 
         call.enqueue(new Callback<Void>() {
             @Override

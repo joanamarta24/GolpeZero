@@ -1,6 +1,6 @@
-import android.content.Context;
+package com.example.golpezero;
 
-import retrofit2.Call;
+import android.content.Context;
 
 public class LightState2 {
     private boolean on;
